@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Finds all elements that are checked or selected.</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+  </head>
+  <body>
+    <h1>Dans #msg afficher le nombre de cases cochées.</h1>
+    <form>
+      <label><input type="checkbox" name="color" value="Red" /> Red</label>
+      <label><input type="checkbox" name="color" value="Green" /> Green</label>
+      <label><input type="checkbox" name="color" value="Blue" /> Blue</label>
+      <label><input type="checkbox" name="color" value="Black" /> Black</label>
+    </form>
+    <p id="msg"></p>
+    <script>
+              function updateMsg() {
+        const c = $('input:checked').length;
+
+        var t;
+
+        if (c == 0) {
+          t = `Aucune case n'est cochée.`;
+        } else if (c == 1) {
+          t = 'Une case est cochée.';
+        } else {
+          t = `${c} cases sont cochées.`;
+        }
+
+        // Equivalent
+        // t = c == 0 ? `Aucune case n'est cochée.` : c > 1 ? `${c} cases sont cochées.` : 'Une case est cochée.';
+
+        $('#msg').text(t);
+      }
+
+      $('input').on('change', updateMsg);
+      updateMsg();
+
+      $('#inputText').on('focus', function () {
+        console.log('got focus');
+      });
+
+      $('#inputText').on('blur', function () {
+        console.log('lost focus (blur)');
+      });
+
+      $('#inputText').on('keydown', function () {
+        console.log('input text keydown');
+      });
+
+      $('#inputText').on('change', function () {
+        console.log('input text change');
+      });
+    </script>
+  </body>
+</html>

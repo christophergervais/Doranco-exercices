@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Qn click, add a &gt;p&lt; below</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+  </head>
+  <body>
+    <form>
+      <p class="test">Hello</p>
+    </form>
+    <div id="debug"></div>
+    <section>
+      <h2>Énoncé</h2>
+      <article>
+        En s'aidant de jQuery, faire en sorte qu'en cliquant sur un élément &lt;p&gt; s'ajoute un autre paragraph.<br />
+        Bonus, que le paragraphe ajouté ai un compteur.
+      </article>
+    </section>
+    <script>
+        var cnt=0;
+
+    $(document).ready(function(){
+    $("p").click(function(){
+    $(this).append(`<p>texte ajouté (${cnt++}) </p>`);
+  });
+
+//   $(".test").click(function(){
+//     $("article").show();
+//   });
+});
+    </script>
+  </body>
+</html>
