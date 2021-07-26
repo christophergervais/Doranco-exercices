@@ -22,31 +22,17 @@
       </p>
     </section>
     <script>
-        var cnt = 2;
+        var cnt = 1;
 
-
+        //augmenter la liste en cliquant sur le bouton "ajouter"
         $('button:contains("Ajouter")').click(function(){
             $('ul').append(`<li>élément (${cnt++})<button>X</button></li>`);
         })
 
-        // $(' li:contains("X")').click(function(){
-            
-        //     $('li:last').remove();
-        // })
-        
-        
-        
-
-
- 
-        
-        
-        
-        
-        
+        //suppr l'élément en cliquant sur le bouton "X"
         $(function(){
             $(document).on('click','button:contains("X")',function(){
-                $(this).parents("li,body").remove();
+                $(this).parents("li").remove();
             })
         })
     </script>
