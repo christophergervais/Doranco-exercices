@@ -8,6 +8,8 @@
   </head>
   <body>
     <button>Ajouter</button>
+    
+
 
     <ul>
       <li>élément <button>X</button></li>
@@ -20,6 +22,7 @@
         <br />
         Et que le bouton 'X' supprimer l'élément.
       </p>
+      <p id="souris" >position souris :</p>
     </section>
     <script>
         var cnt = 1;
@@ -35,6 +38,13 @@
                 $(this).parents("li").remove();
             })
         })
+
+        //aficher la position de la souris
+        $(document).on('mousemove', function(event){
+          var positionSouris = "test souris :";
+          positionSouris += event.pageX + "," + event.pageY
+          $('#souris').text(`<p>`+ positionSouris + `</p>`);
+          })
     </script>
   </body>
 </html>
