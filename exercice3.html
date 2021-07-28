@@ -22,28 +22,30 @@
         <br />
         Et que le bouton 'X' supprimer l'élément.
       </p>
-      <p id="souris" >position souris :</p>
+      <p id="souris" ></p>
     </section>
     <script>
         var cnt = 1;
 
         //augmenter la liste en cliquant sur le bouton "ajouter"
+        //on cible le bouton déclencheur qui contient le mot 'ajouter', au clic la fonction sera la suivante : on cible la liste et on lui rajoute à la fin un élément
         $('button:contains("Ajouter")').click(function(){
             $('ul').append(`<li>élément (${cnt++})<button>X</button></li>`);
         })
 
         //suppr l'élément en cliquant sur le bouton "X"
+        //on cible le bouton déclencheur qui contient la lettre 'X', au clic la fonction sera la suivante : on cible le parent de notre bouton déclencheur et on l'enlève'
         $(function(){
             $(document).on('click','button:contains("X")',function(){
                 $(this).parents("li").remove();
             })
         })
 
-        //aficher la position de la souris
+        //afficher la position de la souris
         $(document).on('mousemove', function(event){
-          var positionSouris = "test souris :";
-          positionSouris += event.pageX + "," + event.pageY
-          $('#souris').text(`<p>`+ positionSouris + `</p>`);
+          var positionSouris = "Position de la souris : ";
+          positionSouris += "sur l'axe X : "+event.pageX + "px, sur l'axe Y : " + event.pageY+"px."
+          $('#souris').text(positionSouris);
           })
     </script>
   </body>
